@@ -21,22 +21,22 @@ module.exports = async(ctx) => {
     const results = [
         ...products,
         {
-            id: "clear",
-            type: "article",
-            thumb_url: "http://s1.iconbird.com/ico/0912/MetroUIDock/w512h5121347465086RecycleBinFull.png",
-            title: "ОЧИСТИТЬ КОРЗИНУ",
-            description: "Удалить все товары из корзины",
-            // caption: manga.description.slice(0, 195) + "...",
-            message_text: "ОЧИСТИТЬ КОРЗИНУ",
-        },
-        {
             id: "buy",
             type: "article",
-            thumb_url: "http://s1.iconbird.com/ico/2013/11/504/w128h1281385326449cart.png",
+            thumb_url: "https://cdn3.iconfinder.com/data/icons/cat-force/256/cat_cart.png",
             title: "ОФОРМИТЬ ЗАКАЗ",
             description: `В корзине: ${cartManager.getCartSize(ctx)} шт.\nИтого: ${sumTotal} руб.`,
             // caption: manga.description.slice(0, 195) + "...",
             message_text: "ОФОРМИТЬ ЗАКАЗ",
+        },
+        {
+            id: "clear",
+            type: "article",
+            thumb_url: "https://cdn0.iconfinder.com/data/icons/Hand_Drawn_Web_Icon_Set/128/trash_delete.png",
+            title: "ОЧИСТИТЬ КОРЗИНУ",
+            description: "Удалить все товары из корзины",
+            // caption: manga.description.slice(0, 195) + "...",
+            message_text: "ОЧИСТИТЬ КОРЗИНУ",
         },
     ];
 
