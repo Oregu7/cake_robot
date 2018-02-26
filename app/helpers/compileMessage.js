@@ -1,0 +1,1 @@
+module.exports = (msg = "") => msg.split("\n").map((item) => item.trim()).join("\n");

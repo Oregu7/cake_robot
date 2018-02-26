@@ -1,0 +1,79 @@
+[{
+    "name": "cake",
+    "title": "торты",
+    "goods": [{
+            "name": "Шарлотта «Тирамису»",
+            "image": "https://vkusnosty.ru/wp-content/uploads/2017/06/DSC_6012-584x450.jpg",
+            "price": 500,
+            "weight": 1,
+            "description": "Простой, быстрый, но эффектный торт-десерт. Беспроигрышный подарок любому."
+        },
+        {
+            "name": "Торт «Муравейник»",
+            "image": "https://vkusnosty.ru/wp-content/uploads/2017/06/DSC_5976-584x450.jpg",
+            "price": 400,
+            "weight": 1,
+            "description": "Торт из далекого детства…"
+        },
+        {
+            "name": "Торт-безе «Елка»",
+            "image": "https://vkusnosty.ru/wp-content/uploads/2017/01/tort-elka-584x450.jpg",
+            "price": 430,
+            "weight": 1,
+            "description": "Оригинальный легкий новогодний торт с нежным кокосовым кремом."
+        },
+        {
+            "name": "Торт с вишневым суфле",
+            "image": "https://vkusnosty.ru/wp-content/uploads/2014/10/Tort-s-vishnevy-m-sufle--584x450.jpg",
+            "price": 510,
+            "weight": 1,
+            "description": "Вам понравится это нежное в меру сладкое суфле с легкой кислинкой на тонких миндальных бисквитах."
+        },
+        {
+            "name": "Медовик со сметанным кремом",
+            "image": "https://vkusnosty.ru/wp-content/uploads/2012/11/1306-584x450.jpg",
+            "price": 600,
+            "weight": 1,
+            "description": "Торт медовик со сметанным кремом получается ароматный, нежный, сладость мёда сглажена кислинкой сметаны и цедры."
+        }
+    ]
+}, {
+    "name": "cheesecake",
+    "title": "Чизкейки",
+    "goods": [{
+            "name": "Чизкейк Нью-Йорк",
+            "image": "https://www.gastronom.ru/binfiles/images/20141221/b548e701.jpg",
+            "price": 600,
+            "weight": 1,
+            "description": "Нежный, сливочный, тающий во рту чизкейк. Мало кто может устоять перед таким соблазном и ограничиться одним кусочком."
+        },
+        {
+            "name": "Шоколадно-творожный чизкейк",
+            "image": "https://www.gastronom.ru/binfiles/images/20150119/bc4e1fc1.jpg",
+            "price": 650,
+            "weight": 1,
+            "description": "Нежный, сливочный, тающий во рту чизкейк. Мало кто может устоять перед таким соблазном и ограничиться одним кусочком."
+        },
+        {
+            "name": "Чизкейк с пряными мандаринами",
+            "image": "https://www.gastronom.ru/binfiles/images/20170205/bb9e7bef.jpg",
+            "price": 700,
+            "weight": 1,
+            "description": "Творожный чизкейк на \"подушке\" из шоколадного брауни и сверху украшенного ароматными пряными мандаринами в сиропе."
+        },
+        {
+            "name": "Трайфл чизкейк с сушеной вишней, апельсином и цветками лаванды",
+            "image": "https://www.gastronom.ru/binfiles/images/20160606/b877cdb2.jpg",
+            "price": 600,
+            "weight": 1,
+            "description": "Супер вкусный, тает во рту."
+        },
+        {
+            "name": "Полосатый чизкейк на овсяной основе",
+            "image": "https://www.gastronom.ru/binfiles/images/20160712/be881565.jpg",
+            "price": 640,
+            "weight": 1,
+            "description": "Вкусный, нежный, сливочный чизкейк."
+        }
+    ]
+}]
