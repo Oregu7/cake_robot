@@ -1,5 +1,5 @@
 const _ = require("lodash");
-const { suid } = require("rand-token");
+const randomize = require("randomatic");
 const Markup = require("telegraf/markup");
 
 const ProductModel = require("../models/product");
@@ -43,7 +43,7 @@ function createProductKeyboard(product, count = 0) {
     ];
     if (count > 0) {
         callbackButtons[0].push(Markup.callbackButton(`${count} шт. \u{2796}`, `rmcart:${product.id}`));
-        callbackButtons.push([Markup.switchToCurrentChatButton("\u{1F6CD}Открыть корзину", `корзина_#${suid(7)}`)]);
+        callbackButtons.push([Markup.switchToCurrentChatButton("\u{1F6CD}Открыть корзину", `корзина_#${generateCartNumber()}`)]);
     }
     return Markup.inlineKeyboard(callbackButtons);
 }
@@ -73,9 +73,14 @@ async function getProducts(ctx) {
     });
 }
 
+function generateCartNumber(size = 11) {
+    return randomize("0", size);
+}
+
 module.exports = {
     getCart,
     getCartSize,
+    generateCartNumber,
     getProductCount,
     getProductsID,
     getProducts,
