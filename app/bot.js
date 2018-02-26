@@ -1,12 +1,13 @@
 const config = require("config");
 const Telegraf = require("telegraf");
-const session = require("telegraf/session");
+// const session = require("telegraf/session");
+const LocalSession = require("telegraf-session-local");
 const controllers = require("./controllers");
 
 const token = config.get("bot.token");
 const bot = new Telegraf(token);
 // middlewares
-bot.use(session());
+bot.use((new LocalSession({ database: "example_db.json" })).middleware());
 // commands
 bot.start(controllers.startController);
 bot.command("menu", controllers.menuController);

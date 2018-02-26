@@ -1,8 +1,17 @@
+const _ = require("lodash");
+const { suid } = require("rand-token");
 const Markup = require("telegraf/markup");
 
+const ProductModel = require("../models/product");
+
 function getCart(ctx) {
-    ctx.session.cart = ctx.session.cart || {};
+    if (!ctx.session.hasOwnProperty("cart")) ctx.session.cart = {};
     return ctx.session.cart;
+}
+
+function getCartSize(ctx) {
+    const cart = _.filter(getCart(ctx), (product) => product > 0);
+    return _.size(cart);
 }
 
 function getProductCount(ctx, id) {
@@ -34,7 +43,7 @@ function createProductKeyboard(product, count = 0) {
     ];
     if (count > 0) {
         callbackButtons[0].push(Markup.callbackButton(`${count} шт. \u{2796}`, `rmcart:${product.id}`));
-        callbackButtons.push([Markup.switchToCurrentChatButton("\u{1F6CD}Открыть корзину", "")]);
+        callbackButtons.push([Markup.switchToCurrentChatButton("\u{1F6CD}Открыть корзину", `корзина_#${suid(7)}`)]);
     }
     return Markup.inlineKeyboard(callbackButtons);
 }
@@ -47,11 +56,29 @@ function createMessageForAnswerCbQuery(product, count, action = "inc") {
     return `${sign}${productInfo}\nв корзине: ${count} шт. ${emoji}`;
 }
 
+function getProductsID(ctx) {
+    const cart = getCart(ctx);
+    // const products = _.filter(cart, (product) => product > 0);
+    return _.map(cart, (count, productID) => {
+        return count > 0 ? productID : null;
+    }).filter((productID) => !_.isNull(productID));
+}
 
+async function getProducts(ctx) {
+    const productsID = getProductsID(ctx);
+    const products = await ProductModel.find({ _id: { $in: productsID } });
+    return products.map((product) => {
+        product.count = getProductCount(ctx, product.id);
+        return product;
+    });
+}
 
 module.exports = {
     getCart,
+    getCartSize,
     getProductCount,
+    getProductsID,
+    getProducts,
     getProductInfo,
     productCountInc,
     productCountDec,
