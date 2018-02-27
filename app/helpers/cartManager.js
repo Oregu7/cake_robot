@@ -10,8 +10,12 @@ function getCart(ctx) {
 }
 
 function getCartSize(ctx) {
-    const cart = _.filter(getCart(ctx), (product) => product > 0);
-    return _.size(cart);
+    const cart = getCart(ctx);
+    return _.reduce(cart, (count, val) => count + val, 0);
+}
+
+function clearCart(ctx) {
+    ctx.session.cart = {};
 }
 
 function getProductCount(ctx, id) {
@@ -80,6 +84,7 @@ function generateCartNumber(size = 11) {
 module.exports = {
     getCart,
     getCartSize,
+    clearCart,
     generateCartNumber,
     getProductCount,
     getProductsID,

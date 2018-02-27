@@ -21,7 +21,8 @@
         "rand-token": "^0.4.0",
         "randomatic": "^3.0.0",
         "telegraf": "^3.18.0",
-        "telegraf-session-local": "0.0.4"
+        "telegraf-session-local": "0.0.4",
+        "validator": "^9.4.1"
     },
     "devDependencies": {
         "babel-eslint": "^8.2.1",

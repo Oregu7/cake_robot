@@ -1,5 +1,5 @@
 const Markup = require("telegraf/markup");
-const { generateCartNumber } = require("../helpers/cartManager");
+const { generateCartNumber } = require("../..//helpers/cartManager");
 
 module.exports = (ctx) => {
     const message = "Нажмите - \u{1F6CD}Открыть корзину, чтобы увидеть текущее содержимое Вашей корзины.";

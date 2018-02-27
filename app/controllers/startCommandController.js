@@ -1,6 +1,6 @@
-const Markup = require("telegraf/markup");
 const Extra = require("telegraf/extra");
 const compileMessage = require("../helpers/compileMessage");
+const { MainKeyboard } = require("./share");
 
 module.exports = (ctx) => {
     const message = `<b>Cake RoBot - </b> это демонстрационный бот магазина по продаже тортиков ヽ(♡‿♡)ノ.
@@ -26,10 +26,5 @@ module.exports = (ctx) => {
     
     /rate - оценить бот`;
 
-    const keyboard = Markup.keyboard([
-        [Markup.button("\u{1F37D}Меню"), Markup.button("\u{1F6CD}Корзина")],
-        [Markup.button("\u{2753}Помощь")],
-    ]).resize(true);
-
-    return ctx.reply(compileMessage(message), Extra.HTML().markup(keyboard));
+    return ctx.reply(compileMessage(message), Extra.HTML().markup(MainKeyboard));
 };

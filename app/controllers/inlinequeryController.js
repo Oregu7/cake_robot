@@ -12,7 +12,7 @@ module.exports = async(ctx) => {
             thumb_url: product.image,
             title: cartManager.getProductInfo(product),
             description: `кол-во: ${product.count} шт.\nсумма: ${sum} руб.`,
-            message_text: "продукт",
+            message_text: `/product ${product.id}`,
         };
 
         return result;
@@ -36,7 +36,7 @@ module.exports = async(ctx) => {
             title: "ОЧИСТИТЬ КОРЗИНУ",
             description: "Удалить все товары из корзины",
             // caption: manga.description.slice(0, 195) + "...",
-            message_text: "ОЧИСТИТЬ КОРЗИНУ",
+            message_text: "/clearcart",
         },
     ];
 
