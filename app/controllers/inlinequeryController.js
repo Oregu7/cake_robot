@@ -27,7 +27,7 @@ module.exports = async(ctx) => {
             title: "ОФОРМИТЬ ЗАКАЗ",
             description: `В корзине: ${cartManager.getCartSize(ctx)} шт.\nИтого: ${sumTotal} руб.`,
             // caption: manga.description.slice(0, 195) + "...",
-            message_text: "ОФОРМИТЬ ЗАКАЗ",
+            message_text: "/pay",
         },
         {
             id: "clear",

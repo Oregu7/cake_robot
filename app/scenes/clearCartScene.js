@@ -1,8 +1,8 @@
 const Markup = require("telegraf/markup");
 const Scene = require("telegraf/scenes/base");
 const { leave } = require("telegraf/stage");
-const { MainKeyboard } = require("../share");
-const { clearCart } = require("../..//helpers/cartManager");
+const { MainKeyboard } = require("config").get("share");
+const { clearCart } = require("../helpers/cartManager");
 
 // Greeter scene
 const clearCartScene = new Scene("clearCart");

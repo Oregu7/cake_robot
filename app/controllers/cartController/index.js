@@ -1,9 +1,9 @@
 const cartCommand = require("./cartCommand");
 const productCommand = require("./productCommand");
-const clearCartScene = require("./clearCartScene");
+const payCommand = require("./payCommand");
 
 module.exports = {
     cartCommand,
     productCommand,
-    clearCartScene,
+    payCommand,
 };
