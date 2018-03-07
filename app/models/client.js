@@ -18,7 +18,37 @@ const ClientSchema = mongoose.Schema({
         longitude: Float,
         latitude: Float,
     },
-    orders: [{ type: mongoose.Schema.Types.ObjectId, ref: "Order" }],
 });
+
+ClientSchema.virtual("orders", {
+    ref: "Order",
+    localField: "_id",
+    foreignField: "client_id",
+});
+
+ClientSchema.statics.getClientOrCreate = async function(ctx) {
+    const { id: userId } = ctx.from;
+    const client = await this.findOne({ userId });
+    if (client) return client;
+
+    const {
+        is_bot: isBot,
+        first_name: firstName,
+        last_name: lastName,
+        username,
+        language_code: languageCode,
+    } = ctx.from;
+
+    const newClient = await this.create({
+        userId,
+        isBot,
+        firstName,
+        lastName,
+        username,
+        languageCode,
+    });
+
+    return newClient;
+};
 
 module.exports = mongoose.model("Client", ClientSchema);

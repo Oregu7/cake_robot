@@ -7,8 +7,9 @@ const ClientModel = require("../../models/client");
 
 const settingsNameScene = new Scene("settings:name");
 
-settingsNameScene.enter((ctx) => {
-    const message = `Ваше имя: ${ctx.session.settings.firstName}\nВведите новое значение:`;
+settingsNameScene.enter(async(ctx) => {
+    const client = await ClientModel.getClientOrCreate(ctx);
+    const message = `Ваше имя: ${client.firstName}\nВведите новое значение:`;
     const keyboard = Markup.keyboard([
         [Markup.button("Начало"), Markup.button("Назад")],
     ]).resize();
@@ -25,7 +26,6 @@ settingsNameScene.hears(/Начало/gi, leave());
 settingsNameScene.command("cancel", leave());
 settingsNameScene.on("text", async(ctx) => {
     const firstName = escape(ctx.message.text);
-    ctx.session.settings.firstName = firstName;
     let ok = await ClientModel.update({ userId: ctx.from.id }, { $set: { firstName } });
     ctx.reply(`Имя изменено на: ${firstName}`);
     ctx.scene.reset();

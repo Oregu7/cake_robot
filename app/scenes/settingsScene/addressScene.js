@@ -19,8 +19,9 @@ const options = {
 
 const geocoder = NodeGeocoder(options);
 
-settingsPhoneScene.enter((ctx) => {
-    const message = `Ваш адрес: ${ctx.session.settings.address || "\u{1F4DD}"}
+settingsPhoneScene.enter(async(ctx) => {
+    const client = await ClientModel.getClientOrCreate(ctx);
+    const message = `Ваш адрес: ${client.address || "\u{1F4DD}"}
 
     Вы можете просто отправить Геолокацию.
     Или написать адрес в формате: Город, ул д`;
@@ -40,20 +41,34 @@ settingsPhoneScene.hears(/Назад/gi, (ctx) => {
 settingsPhoneScene.hears(/Начало/gi, leave());
 settingsPhoneScene.command("cancel", leave());
 
-settingsPhoneScene.on("location", (ctx) => {
+settingsPhoneScene.on("location", async(ctx) => {
     const location = ctx.message.location;
-    geocoder.reverse({ lat: location.latitude, lon: location.longitude }, function(err, data) {
-        console.log(data);
-    });
-
+    const [data] = await geocoder.reverse({ lat: location.latitude, lon: location.longitude });
+    if (!data) return ctx.reply("Некорректные данные, попробуйте снова");
+    return saveAddressAndBackToSettings(ctx, data);
 });
 
-settingsPhoneScene.on("text", (ctx) => {
-    const address = escape(ctx.message.text);
-    geocoder.geocode({ address, language: "ru" }, function(err, data) {
-        console.log(data);
-    });
+settingsPhoneScene.on("text", async(ctx) => {
+    const addressText = escape(ctx.message.text);
+    const [data] = await geocoder.geocode({ address: addressText, language: "ru" });
+    if (!data) return ctx.reply("Некорректные данные, попробуйте снова");
+    return saveAddressAndBackToSettings(ctx, data);
 });
 settingsPhoneScene.on("message", settingsPhoneScene.enterHandler);
+
+async function saveAddressAndBackToSettings(ctx, data) {
+    const { formattedAddress: address, latitude, longitude, city } = data;
+    let ok = await ClientModel.update({ userId: ctx.from.id }, {
+        $set: {
+            address,
+            city,
+            location: { latitude, longitude },
+        },
+    });
+
+    ctx.replyWithHTML(`Адрес изменен на: <i>${address}</i>`);
+    ctx.scene.reset();
+    return ctx.scene.enter("settings");
+}
 
 module.exports = settingsPhoneScene;

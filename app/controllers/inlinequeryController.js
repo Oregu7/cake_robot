@@ -12,7 +12,7 @@ module.exports = async(ctx) => {
             thumb_url: product.image,
             title: cartManager.getProductInfo(product),
             description: `кол-во: ${product.count} шт.\nсумма: ${sum} руб.`,
-            message_text: `/product ${product.id}`,
+            message_text: `/product_${product.publicId}`,
         };
 
         return result;
@@ -26,7 +26,6 @@ module.exports = async(ctx) => {
             thumb_url: "https://cdn3.iconfinder.com/data/icons/cat-force/256/cat_cart.png",
             title: "ОФОРМИТЬ ЗАКАЗ",
             description: `В корзине: ${cartManager.getCartSize(ctx)} шт.\nИтого: ${sumTotal} руб.`,
-            // caption: manga.description.slice(0, 195) + "...",
             message_text: "/pay",
         },
         {
@@ -35,7 +34,6 @@ module.exports = async(ctx) => {
             thumb_url: "https://cdn0.iconfinder.com/data/icons/Hand_Drawn_Web_Icon_Set/128/trash_delete.png",
             title: "ОЧИСТИТЬ КОРЗИНУ",
             description: "Удалить все товары из корзины",
-            // caption: manga.description.slice(0, 195) + "...",
             message_text: "/clearcart",
         },
     ];
@@ -44,7 +42,7 @@ module.exports = async(ctx) => {
         is_personal: true,
         cache_time: 1,
         switch_pm_text: `ОФОРМИТЬ ЗАКАЗ (итого ${sumTotal} руб)\u{27A1}`,
-        switch_pm_parameter: "buy",
+        switch_pm_parameter: "pay",
     };
 
 

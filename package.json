@@ -24,6 +24,7 @@
         "randomatic": "^3.0.0",
         "request": "^2.83.0",
         "request-promise": "^4.2.2",
+        "shortid": "^2.2.8",
         "telegraf": "^3.18.0",
         "telegraf-session-local": "0.0.4",
         "validator": "^9.4.1"

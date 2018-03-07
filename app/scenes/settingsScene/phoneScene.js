@@ -8,8 +8,9 @@ const ClientModel = require("../../models/client");
 
 const settingsPhoneScene = new Scene("settings:phone");
 
-settingsPhoneScene.enter((ctx) => {
-    const message = `Ваш телефонный номер: ${ctx.session.settings.phone || "\u{1F4DD}"}\nВведите новое значение:`;
+settingsPhoneScene.enter(async(ctx) => {
+    const client = await ClientModel.getClientOrCreate(ctx);
+    const message = `Ваш телефонный номер: ${client.phone || "\u{1F4DD}"}\nВведите новое значение:`;
     const keyboard = Markup.keyboard([
         [Markup.contactRequestButton("\u{1F4F1} Отправить Телефон")],
         [Markup.button("Начало"), Markup.button("Назад")],
@@ -42,7 +43,6 @@ settingsPhoneScene.on("text", (ctx) => {
 settingsPhoneScene.on("message", settingsPhoneScene.enterHandler);
 
 async function savePhoneNumberAndBackToSettings(ctx, phone) {
-    ctx.session.settings.phone = phone;
     let ok = await ClientModel.update({ userId: ctx.from.id }, { $set: { phone } });
     ctx.reply(`Телефон изменен на: ${phone}`);
     ctx.scene.reset();
