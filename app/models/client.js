@@ -20,11 +20,11 @@ const ClientSchema = mongoose.Schema({
     },
 });
 
-ClientSchema.virtual("orders", {
+/*ClientSchema.virtual("orders", {
     ref: "Order",
     localField: "_id",
     foreignField: "client_id",
-});
+});*/
 
 ClientSchema.statics.getClientOrCreate = async function(ctx) {
     const { id: userId } = ctx.from;
