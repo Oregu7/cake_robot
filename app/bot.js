@@ -21,6 +21,7 @@ bot.use(stage.middleware());
 bot.start(controllers.startController);
 bot.command("menu", controllers.menuController);
 bot.command("cart", controllers.cartController.cartCommand);
+bot.command("news", controllers.newsController);
 bot.command("clearcart", enter("clearCart"));
 bot.command("settings", enter("settings"));
 bot.command("pay", controllers.cartController.payCommand);
