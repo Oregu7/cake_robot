@@ -5,6 +5,7 @@ const {
     FIRSTNAME_PROPERY,
     PHONE_PROPERTY,
     ADDRESS_PROPERTY,
+    CONFIRMATION,
 } = require("./constants");
 
 const keyboards = {
@@ -18,6 +19,9 @@ const keyboards = {
     ], true),
     [ADDRESS_PROPERTY]: createKeyboard.bind(null, [
         Markup.locationRequestButton("\u{1F4CD}Отправить Мое местоположение"),
+    ], true),
+    [CONFIRMATION]: createKeyboard.bind(null, [
+        Markup.button("\u{2705}Подтвердить заказ"),
     ], true),
 };
 

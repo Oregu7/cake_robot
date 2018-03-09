@@ -14,8 +14,14 @@ function setProperty(property, ctx, value) {
     return ordering;
 }
 
+function deleteOrdering(ctx) {
+    if (ctx.session.ordering) delete ctx.session.ordering;
+    return true;
+}
+
 module.exports = {
     getOrdering,
     getProperty,
     setProperty,
+    deleteOrdering,
 };
