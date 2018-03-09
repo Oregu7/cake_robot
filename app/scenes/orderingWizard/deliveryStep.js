@@ -1,8 +1,14 @@
 const Composer = require("telegraf/composer");
-const decorators = require("./decorators");
-const { setDelivery } = require("./utills");
+const { decorators } = require("./utills");
+const { sendStartFirstNameMessage } = require("./utills").messages;
+const { setDelivery } = require("./utills").properties;
 const deliveryHandler = new Composer();
 
+// use decorators
+decorators.back(deliveryHandler)(sendStartFirstNameMessage);
+decorators.cancel(deliveryHandler);
+
+// handlers
 deliveryHandler.hears(/самовывоз/i, (ctx) => {
     setDelivery(ctx, "self");
     return ctx.wizard.next();
@@ -12,10 +18,6 @@ deliveryHandler.hears(/доставка на дом/i, (ctx) => {
     setDelivery(ctx, "home");
     return ctx.wizard.next();
 });
-
-// use decorators
-decorators.back(deliveryHandler);
-decorators.cancel(deliveryHandler);
 
 // default
 deliveryHandler.use((ctx) => {

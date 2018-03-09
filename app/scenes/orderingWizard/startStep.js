@@ -1,5 +1,5 @@
 const ClientModel = require("../../models/client");
-const { sendStartFirstNameMessage } = require("./utills");
+const { sendStartFirstNameMessage } = require("./utills").messages;
 
 module.exports = async(ctx) => {
 
