@@ -1,13 +1,16 @@
 const Composer = require("telegraf/composer");
 const decorators = require("./decorators");
+const { setDelivery } = require("./utills");
 const deliveryHandler = new Composer();
 
 deliveryHandler.hears(/самовывоз/i, (ctx) => {
-
+    setDelivery(ctx, "self");
+    return ctx.wizard.next();
 });
 
 deliveryHandler.hears(/доставка на дом/i, (ctx) => {
-
+    setDelivery(ctx, "home");
+    return ctx.wizard.next();
 });
 
 // use decorators

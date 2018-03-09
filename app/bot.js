@@ -14,6 +14,7 @@ const stage = new Stage();
 // Scene registration
 stage.register(scenes.clearCartScene);
 stage.register(...scenes.settingsScene);
+stage.register(scenes.orderingWizard);
 // middlewares
 bot.use((new LocalSession({ database: "example_db.json" })).middleware());
 bot.use(stage.middleware());
@@ -24,7 +25,7 @@ bot.command("cart", controllers.cartController.cartCommand);
 bot.command("news", controllers.newsController);
 bot.command("clearcart", enter("clearCart"));
 bot.command("settings", enter("settings"));
-bot.command("pay", controllers.cartController.payCommand);
+bot.command("pay", enter("ordering-wizard"));
 bot.command("cancel", leave());
 // patterns
 bot.hears(/^\u{1F37D}меню$/iu, controllers.menuController);

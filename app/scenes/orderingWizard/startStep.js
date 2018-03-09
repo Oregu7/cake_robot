@@ -1,7 +1,12 @@
 const ClientModel = require("../../models/client");
+const { sendStartFirstNameMessage } = require("./utills");
 
 module.exports = async(ctx) => {
-    if (ctx.session.hasOwnProperty("ordering")) return ctx.wizard.next();
+
+    if (ctx.session.hasOwnProperty("ordering")) {
+        sendStartFirstNameMessage(ctx);
+        return ctx.wizard.next();
+    }
 
     const { firstName, phone, address, _id: clientId } = await ClientModel.getClientOrCreate(ctx);
     ctx.session.ordering = {
@@ -11,5 +16,7 @@ module.exports = async(ctx) => {
         clientId,
         delivery: "self", // self - самовывоз || home - доставка на дом
     };
+
+    sendStartFirstNameMessage(ctx);
     return ctx.wizard.next();
 };
