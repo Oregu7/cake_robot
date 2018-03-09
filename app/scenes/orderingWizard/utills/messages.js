@@ -42,13 +42,18 @@ exports.sendStartDeliveryMessage = (ctx) => {
 exports.sendConfirmationMessage = async(ctx) => {
     const ordering = getOrdering(ctx);
     let sumTotal = 0;
+    let myProducts = [];
     let productsDescription = "";
     const products = await getProducts(ctx);
     for (let product of products) {
         let sum = product.count * product.price;
         sumTotal += sum;
+        myProducts.push({ product: product._id, count: product.count });
         productsDescription += `\u{1F381}${getProductInfo(product)} - ${product.count} шт.\n`;
     }
+
+    ordering.sumTotal = sumTotal;
+    ordering.products = myProducts;
 
     const message = `<b>Ваши данные:</b>\n
     Имя: ${ordering.firstName}

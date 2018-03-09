@@ -1,7 +1,10 @@
 const { MainKeyboard } = require("config").get("share");
 const Composer = require("telegraf/composer");
+const OrderModel = require("../../models/order");
+const { clearCart } = require("../../helpers/cartManager");
+const compileMessage = require("../../helpers/compileMessage");
 const { decorators } = require("./utills");
-const { getProperty, deleteOrdering } = require("./utills").manager;
+const { getProperty, deleteOrdering, getOrdering } = require("./utills").manager;
 const { DELIVERY_PROPERTY } = require("./utills").constants;
 const {
     sendStartAddressMessage,
@@ -24,11 +27,26 @@ confirmationHandler.hears(/назад/i, (ctx) => {
 });
 
 // handlers
-confirmationHandler.hears(/подтвердить заказ/i, (ctx) => {
-    console.log(ctx.session.ordering);
+confirmationHandler.hears(/подтвердить заказ/i, async(ctx) => {
+    const ordering = getOrdering(ctx);
+    const myOrder = await OrderModel.create(ordering);
+
+    const message = `<b>ЗАКАЗ #${myOrder.publicId} - Оформлен</b>
+    Имя: ${myOrder.firstName}
+    Телефон: ${myOrder.phone}
+    Адрес: ${myOrder.address}
+
+    Статус: ${myOrder.status === 0 ? "Ожидание подтверждения" : "Доставка"}
+    Тип доставки: ${myOrder.delivery === "self" ? "самовывоз" : "доставка на дом"}
+    
+    ${"\u{2796}".repeat(7)}
+    <b>Итого: </b> ${myOrder.sumTotal} руб.`;
+    // выходим из сцены и очищаем данные
+    ctx.scene.leave();
     deleteOrdering(ctx);
-    ctx.reply("Done", MainKeyboard.extra());
-    return ctx.scene.leave();
+    clearCart(ctx);
+
+    return ctx.replyWithHTML(compileMessage(message), MainKeyboard.extra());
 });
 
 // default

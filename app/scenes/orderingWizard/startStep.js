@@ -14,6 +14,8 @@ module.exports = async(ctx) => {
         phone,
         address,
         clientId,
+        sumTotal: 0,
+        products: [],
         delivery: "self", // self - самовывоз || home - доставка на дом
     };
 

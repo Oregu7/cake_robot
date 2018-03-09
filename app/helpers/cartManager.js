@@ -62,10 +62,16 @@ function createMessageForAnswerCbQuery(product, count, action = "inc") {
 
 function getProductsID(ctx) {
     const cart = getCart(ctx);
-    // const products = _.filter(cart, (product) => product > 0);
     return _.map(cart, (count, productID) => {
         return count > 0 ? productID : null;
     }).filter((productID) => !_.isNull(productID));
+}
+
+function getProductsAndCount(ctx) {
+    const cart = getCart(ctx);
+    return _.map(cart, (count, product) => {
+        return { product, count };
+    }).filter((data) => data.count);
 }
 
 async function getProducts(ctx) {
@@ -88,6 +94,7 @@ module.exports = {
     generateCartNumber,
     getProductCount,
     getProductsID,
+    getProductsAndCount,
     getProducts,
     getProductInfo,
     productCountInc,
