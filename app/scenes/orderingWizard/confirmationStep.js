@@ -31,16 +31,16 @@ confirmationHandler.hears(/подтвердить заказ/i, async(ctx) => {
     const ordering = getOrdering(ctx);
     const myOrder = await OrderModel.create(ordering);
 
-    const message = `<b>ЗАКАЗ #${myOrder.publicId} - Оформлен</b>
+    const message = `ЗАКАЗ #<b>${myOrder.publicId}</b>
     Имя: ${myOrder.firstName}
     Телефон: ${myOrder.phone}
-    Адрес: ${myOrder.address}
-
     Статус: ${myOrder.status === 0 ? "Ожидание подтверждения" : "Доставка"}
+    Сумма: ${myOrder.sumTotal} руб.
+
     Тип доставки: ${myOrder.delivery === "self" ? "самовывоз" : "доставка на дом"}
+    Адрес: ${myOrder.address}
     
-    ${"\u{2796}".repeat(7)}
-    <b>Итого: </b> ${myOrder.sumTotal} руб.`;
+    <b>Подробнее: </b>/order${myOrder.publicId}`;
     // выходим из сцены и очищаем данные
     ctx.scene.leave();
     deleteOrdering(ctx);

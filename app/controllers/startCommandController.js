@@ -1,7 +1,6 @@
 const Extra = require("telegraf/extra");
 const { MainKeyboard, StartMessage } = require("config").get("share");
 const ClientModel = require("../models/client");
-const { payCommand } = require("./cartController");
 
 module.exports = async(ctx) => {
     const authorized = ctx.session.authorized || false;
@@ -14,6 +13,6 @@ module.exports = async(ctx) => {
         console.log(`[ new client ] => ${client.username}:${client.userId}`);
     }
 
-    if (route === "pay") return payCommand(ctx);
+    if (route === "pay") return ctx.scene.enter("ordering-wizard");
     else return ctx.reply(StartMessage, Extra.HTML().markup(MainKeyboard));
 };

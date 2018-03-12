@@ -4,6 +4,7 @@ const Markup = require("telegraf/markup");
 const CategoryModel = require("../models/category");
 const ProductModel = require("../models/product");
 const cartManager = require("../helpers/cartManager");
+const historyHandler = require("../handlers/historyHandler");
 
 const callback = new Router(({ callbackQuery }) => {
     if (!callbackQuery.data) { return; }
@@ -15,6 +16,7 @@ const callback = new Router(({ callbackQuery }) => {
     return result;
 });
 
+// пагинация по товарам выбранной категории
 callback.on("category", async(ctx) => {
     const [page, categoryId] = ctx.state.payload.split(";");
     const category = await CategoryModel.findById(categoryId);
@@ -44,6 +46,7 @@ callback.on("category", async(ctx) => {
     }
 });
 
+// добавление товара в корзину и увелечине его количества
 callback.on("addcart", async(ctx) => {
     // check cart exist
     const productId = ctx.state.payload;
@@ -55,6 +58,7 @@ callback.on("addcart", async(ctx) => {
     ctx.editMessageReplyMarkup(cartManager.createProductKeyboard(product, count));
 });
 
+// удаление товара из корзины и уменьшение его количества
 callback.on("rmcart", async(ctx) => {
     // check cart exist
     const productId = ctx.state.payload;
@@ -64,6 +68,15 @@ callback.on("rmcart", async(ctx) => {
 
     ctx.answerCbQuery(cartManager.createMessageForAnswerCbQuery(product, count, "dec"), true);
     ctx.editMessageReplyMarkup(cartManager.createProductKeyboard(product, count));
+});
+
+// пагинация по заказм
+callback.on("order_page", async(ctx) => {
+    const [page, clientId] = ctx.state.payload.split(";");
+    const { message, keyboard, empty } = await historyHandler(ctx, page, clientId);
+    if (empty) return ctx.answerCbQuery(`На странице: [${page}] - товары отсутствуют!`, true);
+
+    return ctx.editMessageText(message, Extra.markup(keyboard));
 });
 
 module.exports = callback;

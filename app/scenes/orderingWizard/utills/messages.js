@@ -49,19 +49,19 @@ exports.sendConfirmationMessage = async(ctx) => {
         let sum = product.count * product.price;
         sumTotal += sum;
         myProducts.push({ product: product._id, count: product.count });
-        productsDescription += `\u{1F381}${getProductInfo(product)} - ${product.count} шт.\n`;
+        productsDescription += `\u{1F4E6}${getProductInfo(product)} - ${product.count} шт.\n`;
     }
 
     ordering.sumTotal = sumTotal;
     ordering.products = myProducts;
 
-    const message = `<b>Ваши данные:</b>\n
+    const message = `<b>Ваши данные:</b>
     Имя: ${ordering.firstName}
     Телефон: ${ordering.phone}
     Адрес: ${ordering.address}
     Тип доставки: ${ordering.delivery === "self" ? "самовывоз" : "доставка на дом"}
     
-    <b>Ваши покупки:</b>\n
+    <b>Ваши покупки:</b>
     ${productsDescription}
     ${"\u{2796}".repeat(7)}
     <b>Итого: </b> ${sumTotal} руб.`;
