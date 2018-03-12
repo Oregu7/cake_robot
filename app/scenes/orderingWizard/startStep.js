@@ -6,7 +6,7 @@ module.exports = async(ctx) => {
     const cartSize = getCartSize(ctx);
     if (!cartSize) {
         ctx.scene.leave();
-        return ctx.reply("Вы ничего не положили в корзину!\nПосмотрите лучше меню: /menu");
+        return ctx.reply("Вы ничего не положили в корзину!\nПосмотрите наше меню: /menu");
     }
 
     if (ctx.session.hasOwnProperty("ordering")) {

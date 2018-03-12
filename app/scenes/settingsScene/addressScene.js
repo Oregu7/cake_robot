@@ -27,7 +27,7 @@ settingsPhoneScene.enter(async(ctx) => {
     Или написать адрес в формате: Город, ул д`;
     const keyboard = Markup.keyboard([
         [Markup.locationRequestButton("Отправить Адрес \u{1F4CD}")],
-        [Markup.button("Начало"), Markup.button("Назад")],
+        [Markup.button("\u{1F3E0}В гл.меню"), Markup.button("\u{1F519}Назад")],
     ]).resize();
     return ctx.reply(compileMessage(message), keyboard.extra());
 });
@@ -38,7 +38,7 @@ settingsPhoneScene.hears(/Назад/gi, (ctx) => {
     return ctx.scene.enter("settings");
 });
 
-settingsPhoneScene.hears(/Начало/gi, leave());
+settingsPhoneScene.hears(/в гл\.меню/i, leave());
 settingsPhoneScene.command("cancel", leave());
 
 settingsPhoneScene.on("location", async(ctx) => {

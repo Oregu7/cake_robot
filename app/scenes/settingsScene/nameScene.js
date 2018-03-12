@@ -11,7 +11,7 @@ settingsNameScene.enter(async(ctx) => {
     const client = await ClientModel.getClientOrCreate(ctx);
     const message = `Ваше имя: ${client.firstName}\nВведите новое значение:`;
     const keyboard = Markup.keyboard([
-        [Markup.button("Начало"), Markup.button("Назад")],
+        [Markup.button("\u{1F3E0}В гл.меню"), Markup.button("\u{1F519}Назад")],
     ]).resize();
     return ctx.reply(message, keyboard.extra());
 });
@@ -22,7 +22,7 @@ settingsNameScene.hears(/Назад/gi, (ctx) => {
     return ctx.scene.enter("settings");
 });
 
-settingsNameScene.hears(/Начало/gi, leave());
+settingsNameScene.hears(/в гл\.меню/i, leave());
 settingsNameScene.command("cancel", leave());
 settingsNameScene.on("text", async(ctx) => {
     const firstName = escape(ctx.message.text);

@@ -13,7 +13,7 @@ settingsPhoneScene.enter(async(ctx) => {
     const message = `Ваш телефонный номер: ${client.phone || "\u{1F4DD}"}\nВведите новое значение:`;
     const keyboard = Markup.keyboard([
         [Markup.contactRequestButton("\u{1F4F1} Отправить Телефон")],
-        [Markup.button("Начало"), Markup.button("Назад")],
+        [Markup.button("\u{1F3E0}В гл.меню"), Markup.button("\u{1F519}Назад")],
     ]).resize();
     return ctx.reply(message, keyboard.extra());
 });
@@ -24,7 +24,7 @@ settingsPhoneScene.hears(/Назад/gi, (ctx) => {
     return ctx.scene.enter("settings");
 });
 
-settingsPhoneScene.hears(/Начало/gi, leave());
+settingsPhoneScene.hears(/в гл\.меню/i, leave());
 settingsPhoneScene.command("cancel", leave());
 
 settingsPhoneScene.on("contact", (ctx) => {

@@ -11,9 +11,9 @@ settingsScene.enter(async(ctx) => {
     const client = await ClientModel.getClientOrCreate(ctx);
     const message = "Выберите настройки, которые хотите поменять:";
     const keyboard = Markup.keyboard([
-        [Markup.button("Имя"), Markup.button("Телефон"), Markup.button("Адрес")],
+        [Markup.button("\u{1F48E}Имя"), Markup.button("\u{1F4F1}Телефон"), Markup.button("\u{1F4CD}Адрес")],
         [Markup.button(`Уведомления [ ${client.notification ? "\u{1F515}ОТКЛ." : "\u{1F514}ВКЛ."} ]`)],
-        [Markup.button("Назад")],
+        [Markup.button("\u{1F519}Назад")],
     ]);
     return ctx.reply(message, keyboard.extra());
 });
