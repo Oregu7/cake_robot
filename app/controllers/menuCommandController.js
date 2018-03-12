@@ -7,8 +7,8 @@ module.exports = async(ctx) => {
     const message = "Выберите категорию из меню";
     categories = categories.length ? categories : (await CategoryModel.find({}).select("-products"));
     const keyboard = Markup.inlineKeyboard([
-        Markup.callbackButton(categories[0].title, `category:${categories[0].id}`),
-        Markup.callbackButton(categories[1].title, `category:${categories[1].id}`),
-    ]);
+        ...categories.map((category) =>
+            Markup.callbackButton(category.title, `category:1;${category.id}`)),
+    ], { columns: 3 });
     return ctx.reply(message, keyboard.extra());
 };

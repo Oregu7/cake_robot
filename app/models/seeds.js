@@ -19,10 +19,10 @@ async function main() {
     }
 }
 
-/*main()
-    .catch(console.error);*/
+main()
+    .catch(console.error);
 
-function posts() {
+/*function posts() {
     return PostModel.create({
         title: "Прокачате свой бизнес с помощью ботов \u{1F916}",
         description: "Для оформления заявки заполните форму на нашем сайте: http://tele-bots.mya5.ru/",
@@ -30,4 +30,4 @@ function posts() {
     });
 }
 
-posts().then(console.log);
+posts().then(console.log);*/

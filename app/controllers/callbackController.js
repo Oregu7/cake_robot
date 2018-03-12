@@ -1,5 +1,6 @@
 const Router = require("telegraf/router");
 const Extra = require("telegraf/extra");
+const Markup = require("telegraf/markup");
 const CategoryModel = require("../models/category");
 const ProductModel = require("../models/product");
 const cartManager = require("../helpers/cartManager");
@@ -15,13 +16,31 @@ const callback = new Router(({ callbackQuery }) => {
 });
 
 callback.on("category", async(ctx) => {
-    const category = await CategoryModel.findById(ctx.state.payload).populate("products");
+    const [page, categoryId] = ctx.state.payload.split(";");
+    const category = await CategoryModel.findById(categoryId);
+    const products = await ProductModel.paginate({ category_id: category._id }, {
+        limit: 5,
+        page: Number(page),
+    });
     ctx.editMessageText(`\u{2B07}${category.title}`);
-    for (let product of category.products) {
+    for (let product of products.docs) {
         let count = cartManager.getProductCount(ctx, product.id);
         let keyboard = cartManager.createProductKeyboard(product, count);
         let caption = `${product.name}:\n${product.description}`;
-        ctx.replyWithPhoto(product.image, Extra.load({ caption }).markup(keyboard));
+        await ctx.replyWithPhoto(product.image, Extra.load({ caption }).markup(keyboard));
+    }
+
+    if (products.page < products.pages) {
+        let message = `загружено ${products.page * products.limit} из ${products.total} товаров в категории - "${category.title}"`;
+        let keyboard = Markup.inlineKeyboard([
+            Markup.callbackButton(
+                `\u{23EC}загрузить еще "${category.title}"`,
+                `category:${products.page+1};${category.id}`),
+        ]);
+        return ctx.reply(message, keyboard.extra());
+    } else {
+        let message = `Все ${products.total} товаров из категории - "${category.title}" загружены!\nНажмите: /menu, чтобы продолжить покупки`;
+        return ctx.reply(message);
     }
 });
 

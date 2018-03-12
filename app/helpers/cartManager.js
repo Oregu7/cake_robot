@@ -38,12 +38,12 @@ function productCountDec(ctx, id) {
 }
 
 function getProductInfo(product) {
-    return `${product.name} ${product.weight * 1000}гр./${product.price}руб.`;
+    return `${product.name} ${product.weight}гр./${product.price}руб.`;
 }
 
 function createProductKeyboard(product, count = 0) {
     const callbackButtons = [
-        [Markup.callbackButton(`${product.weight * 1000}гр./${product.price}руб.\u{2795}`, `addcart:${product.id}`)],
+        [Markup.callbackButton(`${product.weight}гр./${product.price}руб.\u{2795}`, `addcart:${product.id}`)],
     ];
     if (count > 0) {
         callbackButtons[0].push(Markup.callbackButton(`${count} шт. \u{2796}`, `rmcart:${product.id}`));

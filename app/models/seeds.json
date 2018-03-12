@@ -1,79 +1,498 @@
 [{
-    "name": "cake",
-    "title": "торты",
-    "goods": [{
-            "name": "Шарлотта «Тирамису»",
-            "image": "https://vkusnosty.ru/wp-content/uploads/2017/06/DSC_6012-584x450.jpg",
-            "price": 500,
-            "weight": 1,
-            "description": "Простой, быстрый, но эффектный торт-десерт. Беспроигрышный подарок любому."
-        },
-        {
-            "name": "Торт «Муравейник»",
-            "image": "https://vkusnosty.ru/wp-content/uploads/2017/06/DSC_5976-584x450.jpg",
-            "price": 400,
-            "weight": 1,
-            "description": "Торт из далекого детства…"
-        },
-        {
-            "name": "Торт-безе «Елка»",
-            "image": "https://vkusnosty.ru/wp-content/uploads/2017/01/tort-elka-584x450.jpg",
-            "price": 430,
-            "weight": 1,
-            "description": "Оригинальный легкий новогодний торт с нежным кокосовым кремом."
-        },
-        {
-            "name": "Торт с вишневым суфле",
-            "image": "https://vkusnosty.ru/wp-content/uploads/2014/10/Tort-s-vishnevy-m-sufle--584x450.jpg",
-            "price": 510,
-            "weight": 1,
-            "description": "Вам понравится это нежное в меру сладкое суфле с легкой кислинкой на тонких миндальных бисквитах."
-        },
-        {
-            "name": "Медовик со сметанным кремом",
-            "image": "https://vkusnosty.ru/wp-content/uploads/2012/11/1306-584x450.jpg",
-            "price": 600,
-            "weight": 1,
-            "description": "Торт медовик со сметанным кремом получается ароматный, нежный, сладость мёда сглажена кислинкой сметаны и цедры."
-        }
-    ]
-}, {
-    "name": "cheesecake",
-    "title": "Чизкейки",
-    "goods": [{
-            "name": "Чизкейк Нью-Йорк",
-            "image": "https://www.gastronom.ru/binfiles/images/20141221/b548e701.jpg",
-            "price": 600,
-            "weight": 1,
-            "description": "Нежный, сливочный, тающий во рту чизкейк. Мало кто может устоять перед таким соблазном и ограничиться одним кусочком."
-        },
-        {
-            "name": "Шоколадно-творожный чизкейк",
-            "image": "https://www.gastronom.ru/binfiles/images/20150119/bc4e1fc1.jpg",
-            "price": 650,
-            "weight": 1,
-            "description": "Нежный, сливочный, тающий во рту чизкейк. Мало кто может устоять перед таким соблазном и ограничиться одним кусочком."
-        },
-        {
-            "name": "Чизкейк с пряными мандаринами",
-            "image": "https://www.gastronom.ru/binfiles/images/20170205/bb9e7bef.jpg",
-            "price": 700,
-            "weight": 1,
-            "description": "Творожный чизкейк на \"подушке\" из шоколадного брауни и сверху украшенного ароматными пряными мандаринами в сиропе."
-        },
-        {
-            "name": "Трайфл чизкейк с сушеной вишней, апельсином и цветками лаванды",
-            "image": "https://www.gastronom.ru/binfiles/images/20160606/b877cdb2.jpg",
-            "price": 600,
-            "weight": 1,
-            "description": "Супер вкусный, тает во рту."
-        },
-        {
-            "name": "Полосатый чизкейк на овсяной основе",
-            "image": "https://www.gastronom.ru/binfiles/images/20160712/be881565.jpg",
-            "price": 640,
-            "weight": 1,
-            "description": "Вкусный, нежный, сливочный чизкейк."
-        }
-    ]
-}]
+        "name": "cake",
+        "title": "торты",
+        "goods": [{
+                "name": "Шарлотта «Тирамису»",
+                "image": "https://vkusnosty.ru/wp-content/uploads/2017/06/DSC_6012-584x450.jpg",
+                "price": 500,
+                "weight": 1,
+                "description": "Простой, быстрый, но эффектный торт-десерт. Беспроигрышный подарок любому."
+            },
+            {
+                "name": "Торт «Муравейник»",
+                "image": "https://vkusnosty.ru/wp-content/uploads/2017/06/DSC_5976-584x450.jpg",
+                "price": 400,
+                "weight": 1,
+                "description": "Торт из далекого детства…"
+            },
+            {
+                "name": "Торт-безе «Елка»",
+                "image": "https://vkusnosty.ru/wp-content/uploads/2017/01/tort-elka-584x450.jpg",
+                "price": 430,
+                "weight": 1,
+                "description": "Оригинальный легкий новогодний торт с нежным кокосовым кремом."
+            },
+            {
+                "name": "Торт с вишневым суфле",
+                "image": "https://vkusnosty.ru/wp-content/uploads/2014/10/Tort-s-vishnevy-m-sufle--584x450.jpg",
+                "price": 510,
+                "weight": 1,
+                "description": "Вам понравится это нежное в меру сладкое суфле с легкой кислинкой на тонких миндальных бисквитах."
+            },
+            {
+                "name": "Медовик со сметанным кремом",
+                "image": "https://vkusnosty.ru/wp-content/uploads/2012/11/1306-584x450.jpg",
+                "price": 600,
+                "weight": 1,
+                "description": "Торт медовик со сметанным кремом получается ароматный, нежный, сладость мёда сглажена кислинкой сметаны и цедры."
+            }
+        ]
+    }, {
+        "name": "cheesecake",
+        "title": "Чизкейки",
+        "goods": [{
+                "name": "Чизкейк Нью-Йорк",
+                "image": "https://www.gastronom.ru/binfiles/images/20141221/b548e701.jpg",
+                "price": 600,
+                "weight": 1,
+                "description": "Нежный, сливочный, тающий во рту чизкейк. Мало кто может устоять перед таким соблазном и ограничиться одним кусочком."
+            },
+            {
+                "name": "Шоколадно-творожный чизкейк",
+                "image": "https://www.gastronom.ru/binfiles/images/20150119/bc4e1fc1.jpg",
+                "price": 650,
+                "weight": 1,
+                "description": "Нежный, сливочный, тающий во рту чизкейк. Мало кто может устоять перед таким соблазном и ограничиться одним кусочком."
+            },
+            {
+                "name": "Чизкейк с пряными мандаринами",
+                "image": "https://www.gastronom.ru/binfiles/images/20170205/bb9e7bef.jpg",
+                "price": 700,
+                "weight": 1,
+                "description": "Творожный чизкейк на \"подушке\" из шоколадного брауни и сверху украшенного ароматными пряными мандаринами в сиропе."
+            },
+            {
+                "name": "Трайфл чизкейк с сушеной вишней, апельсином и цветками лаванды",
+                "image": "https://www.gastronom.ru/binfiles/images/20160606/b877cdb2.jpg",
+                "price": 600,
+                "weight": 1,
+                "description": "Супер вкусный, тает во рту."
+            },
+            {
+                "name": "Полосатый чизкейк на овсяной основе",
+                "image": "https://www.gastronom.ru/binfiles/images/20160712/be881565.jpg",
+                "price": 640,
+                "weight": 1,
+                "description": "Вкусный, нежный, сливочный чизкейк."
+            }
+        ]
+    },
+    {
+        "name": "baking",
+        "title": "Выпечка",
+        "goods": [{
+                "name": "Бублик с кунжутом",
+                "image": "https://i.imgur.com/UEm27uI.jpg",
+                "price": 80,
+                "weight": 30,
+                "description": "Приготовленный на основе дрожжевого теста, воздушный внутри и хрустящий снаружи."
+            },
+            {
+                "name": "Булочка с маком",
+                "image": "https://i.imgur.com/LgYsHtR.jpg",
+                "price": 80,
+                "weight": 30,
+                "description": "Плюшки из дрожжевого теста, с маком, по любимому бабушкиному рецепту."
+            },
+            {
+                "name": "Ватрушка",
+                "image": "https://i.imgur.com/LePWXEz.jpg",
+                "price": 110,
+                "weight": 90,
+                "description": "Национальное мучное сдобное изделие древнеславянской и русской кухни. Начинка-творог или повидло."
+            },
+            {
+                "name": "Клюквенный пирог",
+                "image": "https://i.imgur.com/xTT3lWU.jpg",
+                "price": 200,
+                "weight": 130,
+                "description": "Нежный пирог с тающими ломтиками груши и кисловатым акцентом клюквы."
+            },
+            {
+                "name": "Круассан",
+                "image": "https://i.imgur.com/uuDGgeS.jpg",
+                "price": 87,
+                "weight": 50,
+                "description": "Французская классическая нежнейшая слоёная выпечка с приятной хрустящей корочкой."
+            },
+            {
+                "name": "Пирожок с картошкой",
+                "image": "https://i.imgur.com/k60Sz5m.jpg",
+                "price": 60,
+                "weight": 50,
+                "description": "Отличный вариант перекуса или основного приема пищи, особенно со свежими овощами и сметаной."
+            },
+            {
+                "name": "Треугольник",
+                "image": "https://i.imgur.com/ZvATCfj.jpg",
+                "price": 90,
+                "weight": 60,
+                "description": "Традиционное татарское национальное блюдо. Классическая начинка из говядиной и картофеля."
+            }
+        ]
+    },
+    {
+        "name": "dessert",
+        "title": "Десерты",
+        "goods": [{
+                "name": "Медовый торт",
+                "image": "https://i.imgur.com/jdjR0tB.jpg",
+                "price": 310,
+                "weight": 500,
+                "description": "Нежные, тающие во рту медовые коржи, пропитанные воздушным заварным кремом, - незабываемый вкус детства!"
+            },
+            {
+                "name": "Мороженое",
+                "image": "https://i.imgur.com/iTKadzF.jpg",
+                "price": 250,
+                "weight": 330,
+                "description": "Сливочное мороженое со малиновым вкусом. Лучший десерт в жаркий день!"
+            },
+            {
+                "name": "Пирожное суфле",
+                "image": "https://i.imgur.com/sajn2hW.jpg",
+                "price": 234,
+                "weight": 120,
+                "description": "Мягкий, пропитанный соком бисквит и воздушное шоколадно-апельсиновое суфле с кусочками грецкого ореха."
+            },
+            {
+                "name": "Тирамису",
+                "image": "https://i.imgur.com/oUU2Uey.jpg",
+                "price": 250,
+                "weight": 130,
+                "description": "Нежный итальянский десерт из бисквитного печенья савоярди и сливочного сыра маскарпоне."
+            },
+            {
+                "name": "Торт из печенья",
+                "image": "https://i.imgur.com/mCE1L1h.jpg",
+                "price": 190,
+                "weight": 350,
+                "description": "Нежный торт из печенья «Топленое молоко» с сырковой массой и шоколадом."
+            },
+            {
+                "name": "Торт с вишней",
+                "image": "https://i.imgur.com/ga3Csqh.jpg",
+                "price": 250,
+                "weight": 350,
+                "description": "Шоколадный торт с вишней и кремом из взбитых сливок, по мотивам немецкого шварцвальдского торта."
+            },
+            {
+                "name": "Чизскейк",
+                "image": "https://i.imgur.com/WDrb7Nm.jpg",
+                "price": 240,
+                "weight": 350,
+                "description": "Творожный чизкейк с невероятно вкусной кремовой текстурой в сочетании с нежным бисквитом и ароматом свежей клубники."
+            },
+            {
+                "name": "Шоколадный тортик",
+                "image": "https://i.imgur.com/va9lRpv.jpg",
+                "price": 240,
+                "weight": 350,
+                "description": "Отличается своим нежным вкусом, мягкостью бисквита и незабываемым сочетанием ингредиентов."
+            }
+        ]
+    },
+    {
+        "name": "snack",
+        "title": "Закуски",
+        "goods": [{
+                "name": "Вареные яйца",
+                "image": "https://i.imgur.com/ZoVYVDx.jpg",
+                "price": 150,
+                "weight": 50,
+                "description": "Яйцо, сваренное вкрутую с добавлением ломтика укропа."
+            },
+            {
+                "name": "Канапе с рыбой",
+                "image": "https://i.imgur.com/PmbqjV2.jpg",
+                "price": 100,
+                "weight": 40,
+                "description": "Пикантная закуска из красной рыбы, риса и кусочка сала."
+            },
+            {
+                "name": "Паштет из курицы",
+                "image": "https://i.imgur.com/XgdKPZH.jpg",
+                "price": 290,
+                "weight": 80,
+                "description": "Сочный и вкусный паштет из куриного мяса, который можно подать как отдельное блюдо или к гарниру."
+            },
+            {
+                "name": "Рулетики из ветчины",
+                "image": "hhttps://i.imgur.com/FpqoPyK.jpg",
+                "price": 300,
+                "weight": 60,
+                "description": "Вкусные рулетики из ветчины, сыра, яиц, риса и маринованного огурца - вкусная и сытная закуска для праздничного стола."
+            },
+            {
+                "name": "Строганина из оленины",
+                "image": "https://i.imgur.com/E8fWroy.jpg",
+                "price": 320,
+                "weight": 50,
+                "description": "Мороженная строганная оленина с солью и перцем. Отлично подходит ко многим блюдам."
+            },
+            {
+                "name": "Холодец",
+                "image": "https://i.imgur.com/pazqqin.jpg",
+                "price": 280,
+                "weight": 70,
+                "description": "Блюдо русской кухни из застывшего мясного бульона, овощей и кусочков зелени."
+            }
+        ]
+    },
+    {
+        "name": "drink",
+        "title": "Напитки",
+        "goods": [{
+                "name": "Кофе с молоком",
+                "image": "https://i.imgur.com/OttjFp8.jpg",
+                "price": 160,
+                "weight": 120,
+                "description": "Ароматный кофе, смешанный с порцией свежего молока."
+            },
+            {
+                "name": "Латте",
+                "image": "https://i.imgur.com/ZbMl2K5.jpg",
+                "price": 200,
+                "weight": 120,
+                "description": "Итальянский напиток с добавлением молока и кофе эспрессо."
+            },
+            {
+                "name": "Смузи",
+                "image": "https://i.imgur.com/k4mDKDC.jpg",
+                "price": 350,
+                "weight": 120,
+                "description": "Измельченные ягоды  и фрукты с добавлением сока."
+            },
+            {
+                "name": "Сок",
+                "image": "https://i.imgur.com/DvresjB.jpg",
+                "price": 330,
+                "weight": 120,
+                "description": "Свежевыжатый сок фруктов."
+            },
+            {
+                "name": "Чай",
+                "image": "https://i.imgur.com/wYLXNHn.jpg",
+                "price": 120,
+                "weight": 120,
+                "description": "Крепкий цейлонский чай с сахаром."
+            },
+            {
+                "name": "Эспрессо",
+                "image": "https://i.imgur.com/k6v6l1S.jpg",
+                "price": 270,
+                "weight": 120,
+                "description": "Итальянский напиток с нотками кофейной горечи."
+            }
+        ]
+    },
+    {
+        "name": "pizza",
+        "title": "Пицца",
+        "goods": [{
+                "name": "Ассорти",
+                "image": "https://i.imgur.com/y5YRpwM.jpg",
+                "price": 500,
+                "weight": 450,
+                "description": "Шампиньоны,зелень,моцарелла и овощи."
+            },
+            {
+                "name": "Пицца овощная",
+                "image": "https://i.imgur.com/jVhZLJz.jpg",
+                "price": 260,
+                "weight": 350,
+                "description": "Моцарелла, томаты, орегано, базилик и специи под соусом «неаполитано»."
+            },
+            {
+                "name": "Пицца с грибами",
+                "image": "https://i.imgur.com/HWzFSwh.jpg",
+                "price": 357,
+                "weight": 420,
+                "description": "Моцарелла, шампиньоны, базилик, орегано и специи под соусом «неаполитано»."
+            },
+            {
+                "name": "Пицца с колбасой",
+                "image": "https://i.imgur.com/KIhYIv8.jpg",
+                "price": 467,
+                "weight": 440,
+                "description": "Ветчина, салями, копченые колбаски, моцарелла, жаренный белый лук, базилик и орегано под соусом «неаполитано»."
+            },
+            {
+                "name": "Пицца с сыром",
+                "image": "https://i.imgur.com/Fw9pLIe.jpg",
+                "price": 467,
+                "weight": 350,
+                "description": "Благородный сыр с плесенью, твердые сорта сыра с соусом «бешамель»."
+            }
+        ]
+    },
+    {
+        "name": "rolls",
+        "title": "Роллы",
+        "goods": [{
+                "name": "Ролл калифорния",
+                "image": "https://i.imgur.com/Wmz0d0D.jpg",
+                "price": 210,
+                "weight": 210,
+                "description": "Креветки тигровые, японский майонез, свежий огурец, тобика."
+            },
+            {
+                "name": "Ролл с лососем",
+                "image": "https://i.imgur.com/F2eHAi6.jpg",
+                "price": 209,
+                "weight": 100,
+                "description": "Лосось, рис."
+            },
+            {
+                "name": "Ролл с перцем",
+                "image": "https://i.imgur.com/Uj4DHoq.jpg",
+                "price": 267,
+                "weight": 120,
+                "description": "Рис, нори, болгарский перец."
+            },
+            {
+                "name": "Ролл с тунцом",
+                "image": "https://i.imgur.com/y0VzrsU.jpg",
+                "price": 260,
+                "weight": 100,
+                "description": "Рис, нори, копченый тунец, зеленый лук."
+            },
+            {
+                "name": "Ролл с угрем",
+                "image": "https://i.imgur.com/596LdCC.jpg",
+                "price": 290,
+                "weight": 119,
+                "description": "Нори, рис, сыр сливочный, угорь, огурец, кляр."
+            },
+            {
+                "name": "Ролл филадельфия",
+                "image": "https://i.imgur.com/Wk5QXzt.jpg",
+                "price": 319,
+                "weight": 118,
+                "description": "Лосось, огурец, сыр сливочный."
+            }
+        ]
+    },
+    {
+        "name": "salad",
+        "title": "Салаты",
+        "goods": [{
+                "name": "Греческий салат",
+                "image": "https://i.imgur.com/awXf5f1.jpg",
+                "price": 287,
+                "weight": 240,
+                "description": "Огурцы, томаты, болгарский перец, салатный микс «месклан»."
+            },
+            {
+                "name": "Оливье",
+                "image": "https://i.imgur.com/9XrH2V7.jpg",
+                "price": 300,
+                "weight": 250,
+                "description": "Курица отварная, картофель, огурцы, яйцо, майонез, зелень."
+            },
+            {
+                "name": "Салат из креветок",
+                "image": "https://i.imgur.com/QWHpojQ.jpg",
+                "price": 397,
+                "weight": 185,
+                "description": "Тигровые креветки, руккола и авокадо под лимонно-оливковой заправкой с бальзамическим соуосм."
+            },
+            {
+                "name": "Салат из печени трески",
+                "image": "https://i.imgur.com/OSr1K3j.jpg",
+                "price": 450,
+                "weight": 250,
+                "description": "Печень трески, свежий огурец, помидоры, грибы,перепельны яйцо, заправка."
+            },
+            {
+                "name": "Салат из помидоров и огурцов",
+                "image": "https://i.imgur.com/kPm2SdA.jpg",
+                "price": 210,
+                "weight": 150,
+                "description": "Свеженарезенные помидоры и огурцы, заправленные фирменным соусом."
+            },
+            {
+                "name": "Свекольный салат",
+                "image": "https://i.imgur.com/K08aMEO.jpg",
+                "price": 250,
+                "weight": 200,
+                "description": "Свежая свекла с майонезом."
+            },
+            {
+                "name": "Сельдь под шубой",
+                "image": "https://i.imgur.com/VczhFmq.jpg",
+                "price": 240,
+                "weight": 200,
+                "description": "Сельдь собственного посола, картофель, свекла, куриное яйцо, морковь, красная икра, майонез, лук."
+            },
+            {
+                "name": "Цезарь",
+                "image": "https://i.imgur.com/4puLGRZ.jpg",
+                "price": 290,
+                "weight": 180,
+                "description": "Маринованное куриное филе, пармезан, томаты черри, ароматные специи, салат романо, пшеничные гренки, соус «цезарь»."
+            }
+        ]
+    },
+    {
+        "name": "soup",
+        "title": "Супы",
+        "goods": [{
+                "name": "Борщ",
+                "image": "https://i.imgur.com/LrE1N6b.jpg",
+                "price": 337,
+                "weight": 250,
+                "description": "Борщ с мясом говядины, подается в запеченном бородинском хлебе со сметаной, зеленью."
+            },
+            {
+                "name": "Гороховый суп",
+                "image": "https://i.imgur.com/wAosGHl.jpg",
+                "price": 350,
+                "weight": 250,
+                "description": "Гороховый супчик с копченостями и хрустящей булочкой."
+            },
+            {
+                "name": "Грибной суп",
+                "image": "https://i.imgur.com/93WV4vz.jpg",
+                "price": 230,
+                "weight": 280,
+                "description": "Домашняя лапша с грибами и сметаной."
+            },
+            {
+                "name": "Куриный суп",
+                "image": "https://i.imgur.com/OLJrr0t.jpg",
+                "price": 200,
+                "weight": 300,
+                "description": "Куриной суп с яичной лапшой собственного приготовления."
+            },
+            {
+                "name": "Лагман",
+                "image": "https://i.imgur.com/zK9EbBb.jpg",
+                "price": 350,
+                "weight": 400,
+                "description": "Говядина, картофель, томаты, лук, морковь, сладкий перец, картофель, стручковая фасоль."
+            },
+            {
+                "name": "Рассольник",
+                "image": "https://i.imgur.com/FYNKihW.jpg",
+                "price": 370,
+                "weight": 250,
+                "description": "Говядина, свинина, огурцы соленые, помидоры, масло подсолнечное, сахар, перловая крупа."
+            },
+            {
+                "name": "Харчо",
+                "image": "https://i.imgur.com/lqzeoso.jpg",
+                "price": 400,
+                "weight": 330,
+                "description": "Пряный острый суп из говядины с рисом , тертыми грецкими орехами и соусом ткемали."
+            },
+            {
+                "name": "Шурпа",
+                "image": "https://i.imgur.com/hJ1E3IK.jpg",
+                "price": 530,
+                "weight": 350,
+                "description": "Ароматный прозрачный бульон с каре ягненка, овощами и горохом нут."
+            }
+        ]
+    }
+]

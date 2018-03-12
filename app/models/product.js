@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const shortid = require("shortid");
+const mongoosePaginate = require("mongoose-paginate");
 
 const ProductSchema = mongoose.Schema({
     name: { type: String, required: true, index: true },
@@ -10,5 +11,7 @@ const ProductSchema = mongoose.Schema({
     category_id: [{ type: mongoose.Schema.Types.ObjectId, ref: "Category" }],
     publicId: { type: String, default: shortid.generate },
 });
+
+ProductSchema.plugin(mongoosePaginate);
 
 module.exports = mongoose.model("Product", ProductSchema);

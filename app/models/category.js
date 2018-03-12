@@ -5,10 +5,10 @@ const CategorySchema = mongoose.Schema({
     title: { type: String, required: true, index: true },
 });
 
-CategorySchema.virtual("products", {
+/*CategorySchema.virtual("products", {
     ref: "Product",
     localField: "_id",
     foreignField: "category_id",
-});
+});*/
 
 module.exports = mongoose.model("Category", CategorySchema);

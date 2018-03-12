@@ -1,5 +1,4 @@
 const Markup = require("telegraf/markup");
-//const compileMessage = require("../helpers/compileMessage");
 
 exports.MainKeyboard = Markup.keyboard([
     [Markup.button("\u{1F37D}Меню"), Markup.button("\u{1F6CD}Корзина")],
@@ -25,6 +24,4 @@ exports.StartMessage = `<b>Cake RoBot - </b> это демонстрационн
 <b>Разное</b>
 /start — Главное меню
 /off — Выключить подписку на бота
-/on — Включить подписку на бота
-
-/rate - оценить бот`;
+/on — Включить подписку на бота`;
