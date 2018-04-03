@@ -19,8 +19,8 @@ async function main() {
     }
 }
 
-main()
-    .catch(console.error);
+/*main()
+    .catch(console.error);*/
 
 /*function posts() {
     return PostModel.create({

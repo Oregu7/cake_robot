@@ -24,13 +24,15 @@ bot.command("menu", controllers.menuController);
 bot.command("cart", controllers.cartController.cartCommand);
 bot.command("news", controllers.newsController);
 bot.command("history", controllers.historyController);
+bot.command("help", controllers.helpController);
+bot.command("feedback", controllers.feedbackController);
 bot.command("clearcart", enter("clearCart"));
 bot.command("settings", enter("settings"));
 bot.command("pay", enter("ordering-wizard"));
 bot.command("cancel", leave());
 // patterns
 bot.hears(/^\u{1F37D}меню$/iu, controllers.menuController);
-bot.hears(/^\u{2753}помощь$/iu, controllers.startController);
+bot.hears(/^\u{2753}помощь$/iu, controllers.helpController);
 bot.hears(/^\u{1F6CD}корзина$/iu, controllers.cartController.cartCommand);
 bot.hears(/мои заказы/i, controllers.historyController);
 bot.hears(/настройки/i, enter("settings"));
