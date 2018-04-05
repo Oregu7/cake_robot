@@ -1,6 +1,6 @@
 {
     "name": "cakebot",
-    "version": "0.0.1",
+    "version": "0.5.47",
     "description": "",
     "main": "main.js",
     "scripts": {
@@ -16,6 +16,7 @@
         "express": "^4.16.3",
         "feedparser": "^2.2.9",
         "forest-express-mongoose": "^2.5.1",
+        "ip": "^1.1.5",
         "lodash": "^4.17.5",
         "moment": "^2.20.1",
         "mongoose": "^5.0.3",

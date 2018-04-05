@@ -1,3 +1,5 @@
 /node_modules/
 .env
 example_db.json
+webhook_pkey.pem
+webhook_cert.pem
