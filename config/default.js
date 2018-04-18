@@ -7,6 +7,8 @@ const share = require("./components/share");
 const REQUIRED_VARIABLES = [
     "NODE_ENV",
     "PORT",
+    "IP",
+    "WEBHOOK",
     "BOT_TOKEN",
     "DB_URI",
 ];
@@ -25,6 +27,8 @@ const config = {
     env: process.env.NODE_ENV,
     server: {
         port: Number(process.env.PORT),
+        ip: process.env.IP,
+        webhook: process.env.WEBHOOK,
     },
     bot: {
         token: process.env.BOT_TOKEN,
